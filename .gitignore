@@ -1,0 +1,8 @@
+*.py[cod]
+__pycache__/
+.web
+*.db
+assets/external/
+assets/*
+!assets/chakra_color_mode_provider.js
+.idea/
