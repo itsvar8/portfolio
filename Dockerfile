@@ -41,3 +41,10 @@ CMD [ -d alembic ] && reflex db migrate; \
     caddy start && \
     redis-server --daemonize yes && \
     exec reflex run --env prod --backend-only
+
+
+## BUILD
+# docker buildx build --platform linux/amd64,linux/arm64/v8 -t itsvar8/portfolio-reflex . --push
+
+## RUN
+# docker run -d --restart always --name portfolio -p 8080:8080 itsvar8/portfolio-reflex
