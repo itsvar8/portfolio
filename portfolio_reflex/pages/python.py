@@ -2,20 +2,16 @@ import reflex as rx
 from portfolio_reflex import ui
 
 
-class State(rx.State):
-    pass
-
-
 def content(mobile_tablet=False):
     return rx.vstack(
         rx.heading("Python", size="9" if not mobile_tablet else "8"),
         rx.divider(color_scheme="cyan", margin_y="2vh"),
-        rx.heading("This webapp...", size="7" if not mobile_tablet else "6"),
-        rx.text(
-            "...is completely written in Python using the open-source framework ",
-            rx.link("Reflex", href="https://reflex.dev", is_external=True),
-            ".",
-            size="5" if not mobile_tablet else "4",
+        ui.welcome_card(
+            "This webapp",
+            "/icon.png",
+            "https://github.com/itsvar8/portfolio_reflex",
+            external=True,
+            description="is completely written in Python using the open-source framework Reflex.",
         ),
         rx.divider(color_scheme="cyan", margin_y="2vh"),
         ui.bottom_buttons(),

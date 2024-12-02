@@ -1,5 +1,3 @@
-import os
-
 import reflex as rx
 from portfolio_reflex import ui
 from portfolio_reflex.ui import pop_image

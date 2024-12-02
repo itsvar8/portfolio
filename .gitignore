@@ -4,5 +4,5 @@ __pycache__/
 *.db
 assets/external/
 assets/*
-!assets/chakra_color_mode_provider.js
+!assets/readme.md
 .idea/

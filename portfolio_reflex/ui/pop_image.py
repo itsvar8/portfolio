@@ -1,5 +1,4 @@
 import reflex as rx
-from reflex.components.radix.themes.components.aspect_ratio import aspect_ratio
 
 
 class State(rx.State):
@@ -51,7 +50,6 @@ def pop_image(img, _aspect_ratio="auto"):
             align="center",
             justify="center",
             on_click=lambda: State.show(img),
-            # margin_y="-8%",
             _hover={
                 "cursor": "pointer",
             },
