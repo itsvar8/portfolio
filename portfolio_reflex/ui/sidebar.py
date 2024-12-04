@@ -13,8 +13,11 @@ def sidebar_item(text: str, icon: str, href: str) -> rx.Component:
             _hover={
                 "bg": rx.color("accent", 4),
                 "color": rx.color("accent", 11),
+                "transform": "scale(1.05)",
             },
             border_radius="0.5em",
+            transform="scale(1)",
+            transition="transform 0.3s ease",
         ),
         href=href,
         underline="none",

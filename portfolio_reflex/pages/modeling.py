@@ -1,16 +1,16 @@
 import os
+import time
 import reflex as rx
 from portfolio_reflex import ui
-from portfolio_reflex.ui import pop_image
 
-images = list()
+_renders = list()
 for root, dirs, files in os.walk(os.path.join("assets", "renders"), topdown=False):
     for icon in sorted(files, reverse=False):
-        images.append(os.path.join(root.replace("assets", ""), icon))
+        _renders.append(os.path.join(root.replace("assets", ""), icon))
 
 
-class State(rx.State):
-    renders: list[str] = images  # noqa
+class ModelingState(rx.State):
+    renders: list[str] = _renders  # noqa
 
 
 def content(mobile_tablet=False):
@@ -25,13 +25,23 @@ def content(mobile_tablet=False):
         ),
         rx.vstack(
             rx.grid(
-                rx.foreach(State.renders, lambda img: pop_image(img, "1")),
+                rx.foreach(ModelingState.renders, lambda img: ui.dialog_image(img, "1")),
                 columns="4" if not mobile_tablet else "2",
                 spacing="5" if not mobile_tablet else "2",
             ),
+            align="center",
             spacing="5" if not mobile_tablet else "3",
             margin_left="16em" if not mobile_tablet else "auto",
             padding="2vw",
+        ),
+        rx.vstack(
+            rx.divider(color_scheme="cyan", margin_y="2vh"),
+            rx.image("/5_4_macropad.gif", width="100%", border_radius="1rem"),
+            align="center",
+            spacing="5" if not mobile_tablet else "3",
+            margin_left="16em" if not mobile_tablet else "auto",
+            padding_x="18vw" if not mobile_tablet else "6vw",
+            padding_y="2vw",
         ),
         rx.vstack(
             rx.divider(color_scheme="cyan", margin_y="2vh"),

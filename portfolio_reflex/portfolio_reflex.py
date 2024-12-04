@@ -1,12 +1,10 @@
 import os
 import reflex as rx
 from rxconfig import config  # noqa
-from . import pages, ui  # noqa
+from . import pages  # noqa
+from . import ui
 
-with open(
-    os.path.join(os.getcwd(), "assets", "intro.txt"),
-    encoding="utf-8",
-) as f:
+with open(os.path.join(os.getcwd(), "assets", "intro.txt"), encoding="utf-8") as f:
     intro = f.read()
 
 
