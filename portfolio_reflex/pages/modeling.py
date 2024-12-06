@@ -1,16 +1,26 @@
 import os
-import time
 import reflex as rx
 from portfolio_reflex import ui
 
 _renders = list()
-for root, dirs, files in os.walk(os.path.join("assets", "renders"), topdown=False):
-    for icon in sorted(files, reverse=False):
-        _renders.append(os.path.join(root.replace("assets", ""), icon))
+# for root, dirs, files in os.walk(os.path.join("assets", "renders"), topdown=False):
+#     for icon in sorted(files, reverse=False):
+#         _renders.append(os.path.join(root.replace("assets", ""), icon))
+for file in os.listdir(os.path.join("assets", "renders")):
+    if os.path.splitext(file)[-1] == "":
+        continue
+    _renders.append(
+        {
+            "img": os.path.normpath(os.path.join("/renders", file)),
+            "thumb": os.path.normpath(os.path.join("/renders/thumbs", file)),
+        }
+    )
+
+print(_renders)
 
 
 class ModelingState(rx.State):
-    renders: list[str] = _renders  # noqa
+    renders: list[dict[str, str]] = _renders  # noqa
 
 
 def content(mobile_tablet=False):
@@ -25,9 +35,9 @@ def content(mobile_tablet=False):
         ),
         rx.vstack(
             rx.grid(
-                rx.foreach(ModelingState.renders, lambda img: ui.dialog_image(img, "1")),
+                rx.foreach(ModelingState.renders, lambda img: ui.dialog_image(img, "1", True)),
                 columns="4" if not mobile_tablet else "2",
-                spacing="5" if not mobile_tablet else "2",
+                spacing="4" if not mobile_tablet else "2",
             ),
             align="center",
             spacing="5" if not mobile_tablet else "3",

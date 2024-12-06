@@ -21,12 +21,17 @@ class DialogImageState(rx.State):
             self._loaded()
 
 
-def dialog_image(img, _aspect_ratio="auto"):
+def dialog_image(img, _aspect_ratio="auto", with_thumb=False):
+    if with_thumb:
+        thumb = img["thumb"]
+        image = img["img"]
+    else:
+        thumb = image = img
     return rx.dialog.root(
         rx.skeleton(
             rx.dialog.trigger(
                 rx.flex(
-                    rx.image(img, border_radius="1rem", max_height="100%"),
+                    rx.image(thumb, border_radius="1rem", max_height="100%"),
                     align="center",
                     justify="center",
                     _hover={
@@ -37,6 +42,7 @@ def dialog_image(img, _aspect_ratio="auto"):
                     max_width="100%",
                     transform="scale(1)",
                     transition="transform 0.3s ease",
+                    margin="2%",
                 ),
             ),
             loading=rx.cond(DialogImageState.loading, True, False),
@@ -47,7 +53,7 @@ def dialog_image(img, _aspect_ratio="auto"):
                 # rx.dialog.description(
                 #     "This is a dialog component. You can render anything you want in here.",
                 # ),
-                rx.image(img, border_radius="1rem", max_width="94vw", max_height="84vh"),
+                rx.image(image, border_radius="1rem", max_width="94vw", max_height="84vh"),
                 rx.dialog.close(rx.button("Close", size="2", outline="none")),
                 spacing="5",
                 width="100%",
