@@ -1,5 +1,5 @@
 import reflex as rx
-from portfolio_reflex import ui
+from portfolio import ui
 
 
 def content(mobile_tablet=False):

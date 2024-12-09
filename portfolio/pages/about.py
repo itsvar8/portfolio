@@ -1,36 +1,44 @@
-import os
 import reflex as rx
-from portfolio_reflex import ui
+from portfolio import ui
 
-with open(
-    os.path.join(os.getcwd(), "assets", "about_me.txt"),
-    encoding="utf-8",
-) as f:
-    about = f.read()
+# with open(
+#         os.path.join(os.getcwd(), "assets", "about_me.txt"),
+#         encoding="utf-8",
+# ) as f:
+#     _about = f.read()
 
-icons = dict()
-for root, dirs, files in os.walk(os.path.join("assets", "software_icons"), topdown=False):
-    for icon in sorted(files, reverse=True):
-        icons[icon.split(".")[0].capitalize()] = os.path.join(root.replace("assets", ""), icon)
+_about = '''I'm Andrea Varotto, I live in northeast Italy, and I'll be soon father for the second time.
+I've been passionate about PCs since I was a kid and always need to be learning something new in tech to feel at my best.
+I plan to dive into Rust next, and I'm also considering taking Japanese lessons.
+One language for machines and one for humans, I guess!'''
+
+_icons = {
+    'Solidworks': 'software_icons\\01_3D\\solidworks.png', 'Onshape': 'software_icons\\01_3D\\onshape.png',
+    'Fusion': 'software_icons\\01_3D\\fusion.png', 'Blender': 'software_icons\\01_3D\\blender.png',
+    'Prusaslicer': 'software_icons\\02_slicers\\prusaslicer.png', 'Cura': 'software_icons\\02_slicers\\cura.png',
+    'Chitubox': 'software_icons\\02_slicers\\chitubox.png', 'Photoshop': 'software_icons\\03_2D\\photoshop.png',
+    'Lightroom': 'software_icons\\03_2D\\lightroom.png', 'Illustrator': 'software_icons\\03_2D\\illustrator.png',
+    'Resolve': 'software_icons\\resolve.png', 'Kicad': 'software_icons\\kicad.png'
+}
 
 
 class State(rx.State):
-    about: list[str] = about.split("\n")  # noqa
-    sw_icons: dict[str, str] = icons  # noqa
+    about: list[str] = _about.split("\n")  # noqa
+    sw_icons: dict[str, str] = _icons  # noqa
 
 
 def image_with_caption(image):
     return rx.fragment(
         rx.desktop_only(
             rx.vstack(
-                rx.image(image[1]),
+                rx.image(f"/{image[1]}"),
                 rx.text(f"{image[0]}", size="4"),
                 align="center",
             )
         ),
         rx.mobile_and_tablet(
             rx.vstack(
-                rx.image(image[1]),
+                rx.image(f"/{image[1]}"),
                 rx.text(f"{image[0]}", size="2"),
                 align="center",
             )

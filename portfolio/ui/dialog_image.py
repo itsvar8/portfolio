@@ -1,5 +1,4 @@
 import asyncio
-import time
 import reflex as rx
 
 
@@ -23,10 +22,10 @@ class DialogImageState(rx.State):
 
 def dialog_image(img, _aspect_ratio="auto", with_thumb=False):
     if with_thumb:
-        thumb = img["thumb"]
-        image = img["img"]
+        thumb = f"/{img["thumb"]}"
+        image = f"/{img["img"]}"
     else:
-        thumb = image = img
+        thumb = image = f"/{img}"
     return rx.dialog.root(
         rx.skeleton(
             rx.dialog.trigger(

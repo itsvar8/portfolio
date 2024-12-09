@@ -1,22 +1,22 @@
-import os
 import reflex as rx
-from portfolio_reflex import ui
+from portfolio import ui
 
-_renders = list()
-# for root, dirs, files in os.walk(os.path.join("assets", "renders"), topdown=False):
-#     for icon in sorted(files, reverse=False):
-#         _renders.append(os.path.join(root.replace("assets", ""), icon))
-for file in os.listdir(os.path.join("assets", "renders")):
-    if os.path.splitext(file)[-1] == "":
-        continue
-    _renders.append(
-        {
-            "img": os.path.normpath(os.path.join("/renders", file)),
-            "thumb": os.path.normpath(os.path.join("/renders/thumbs", file)),
-        }
-    )
 
-print(_renders)
+_renders = [
+    {'img': 'renders\\00_Varotto_lamp_square.png', 'thumb': 'renders\\thumbs\\00_Varotto_lamp_square.png'},
+    {'img': 'renders\\02_5_4_macropad.jpg', 'thumb': 'renders\\thumbs\\02_5_4_macropad.jpg'},
+    {'img': 'renders\\05_0_MeshVariant.png', 'thumb': 'renders\\thumbs\\05_0_MeshVariant.png'},
+    {'img': 'renders\\05_case.PNG', 'thumb': 'renders\\thumbs\\05_case.PNG'},
+    {'img': 'renders\\Cornepad-02.png', 'thumb': 'renders\\thumbs\\Cornepad-02.png'},
+    {'img': 'renders\\Cornepad-03.png', 'thumb': 'renders\\thumbs\\Cornepad-03.png'},
+    {'img': 'renders\\Fan impeller blender comp.png',
+     'thumb': 'renders\\thumbs\\Fan impeller blender comp.png'},
+    {'img': 'renders\\OpenAirCase5mm-00-FRONT.png', 'thumb': 'renders\\thumbs\\OpenAirCase5mm-00-FRONT.png'},
+    {'img': 'renders\\OpenAirCase5mm-01-BACK.png', 'thumb': 'renders\\thumbs\\OpenAirCase5mm-01-BACK.png'},
+    {'img': 'renders\\Spiral cup.png', 'thumb': 'renders\\thumbs\\Spiral cup.png'},
+    {'img': 'renders\\Thermostat cover.png', 'thumb': 'renders\\thumbs\\Thermostat cover.png'},
+    {'img': 'renders\\zz_Crankshaft.png', 'thumb': 'renders\\thumbs\\zz_Crankshaft.png'}
+]
 
 
 class ModelingState(rx.State):

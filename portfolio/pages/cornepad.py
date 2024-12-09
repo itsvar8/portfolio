@@ -1,5 +1,5 @@
 import reflex as rx
-from portfolio_reflex import ui
+from portfolio import ui
 
 
 def content(mobile_tablet=False):
@@ -67,9 +67,9 @@ def content(mobile_tablet=False):
         #
         rx.heading("Wiring", size="7" if not mobile_tablet else "6"),
         rx.text("Click on the image to expand", size="5" if not mobile_tablet else "4"),
-        rx.box(ui.dialog_image("/cornepad/Cornepad-Wiring-RP2040.png")),
+        rx.box(ui.dialog_image("cornepad/Cornepad-Wiring-RP2040.png")),
         rx.spacer(),
-        rx.box(ui.dialog_image("/cornepad/Cornepad-Wiring-LEDS.png")),
+        rx.box(ui.dialog_image("cornepad/Cornepad-Wiring-LEDS.png")),
         #
         rx.divider(color_scheme="cyan", margin_y="2vh"),
         #
@@ -126,7 +126,7 @@ def content(mobile_tablet=False):
             justify_content="flex-end",
             padding_y="1rem",
         ),
-        rx.image("/renders/Cornepad-03_1789x2000.png", border_radius="1rem"),
+        rx.image("/renders/Cornepad-03.png", border_radius="1rem"),
         #
         rx.divider(color_scheme="cyan", margin_y="2vh"),
         #
