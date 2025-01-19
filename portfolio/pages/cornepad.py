@@ -139,7 +139,7 @@ def content(mobile_tablet=False):
             rx.button(
                 rx.icon("credit-card"),
                 "Paypal",
-                on_click=rx.redirect("https://www.paypal.com/paypalme/itsvar8", external=True),
+                on_click=rx.redirect("https://www.paypal.com/paypalme/itsvar8", is_external=True),
                 _hover={
                     "cursor": "pointer",
                 },

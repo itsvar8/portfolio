@@ -1,4 +1,3 @@
-import os
 import reflex as rx
 from rxconfig import config  # noqa
 from . import pages  # noqa
@@ -7,9 +6,9 @@ from . import ui
 # with open(os.path.join(os.getcwd(), "assets", "intro.txt"), encoding="utf-8") as f:
 #     _intro = f.read()
 
-_intro = '''Over the past three years, I’ve dedicated myself to mastering 3D modeling and 3D printing, building on my previous experience in photography and graphic design as a digital printing specialist.
-Recently, I’ve focused on expanding my knowledge further by learning Python, which I’ve been studying intensively for the last six months.
-Here, you'll find examples that showcase my journey in 3D design, printing, and coding, highlighting my commitment to growth in cutting-edge technologies.'''
+_intro = """Over the past three years, I’ve dedicated myself to mastering 3D modeling and 3D printing, building on my previous experience in photography and graphic design as a digital printing specialist.
+Recently, I’ve focused on expanding my knowledge further by learning Python, which I’ve been studying intensively for the last eight months.
+Here, you'll find examples that showcase my journey in 3D design, printing, and coding, highlighting my commitment to growth in cutting-edge technologies."""
 
 
 class State(rx.State):

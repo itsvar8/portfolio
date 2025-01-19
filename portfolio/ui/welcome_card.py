@@ -52,7 +52,7 @@ def card(
             wrap="wrap",
             justify="center",
         ),
-        on_click=rx.redirect(redirect, external=external),
+        on_click=rx.redirect(redirect, is_external=external),
         _hover={
             "cursor": "pointer",
             "background-image": f"linear-gradient({rx.color('slate', 1)}, {rx.color('accent', 4)})",
