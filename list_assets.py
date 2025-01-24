@@ -1,5 +1,6 @@
 import os
 
+
 _renders = list()
 for file in os.listdir(os.path.join(os.getcwd(), "assets", "renders")):
     if os.path.splitext(file)[-1] == "":
@@ -21,9 +22,12 @@ for root, dirs, files in os.walk(os.path.join(os.getcwd(), "assets", "software_i
 
 # print(_icons)
 
+
 _certificates = dict()
 for root, dirs, files in os.walk(os.path.join(os.getcwd(), "assets", "certificates"), topdown=False):
     for certificate in sorted(files, reverse=False):
-        _certificates[certificate.split(".")[0].title().strip("0123456789 ")] = os.path.relpath(os.path.join(root, certificate), "assets")
+        _certificates[certificate.split(".")[0].title().strip("0123456789 ")] = os.path.relpath(
+            os.path.join(root, certificate), "assets"
+        )
 
 print(_certificates)

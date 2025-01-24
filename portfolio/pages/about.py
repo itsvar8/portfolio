@@ -31,6 +31,8 @@ _certificates = {
     "What Is Data Science": "certificates\\01 What is Data Science.jpg",
     "Tools For Data Science": "certificates\\02 Tools for Data Science.jpg",
     "Data Science Methodology": "certificates\\03 Data Science Methodology.jpg",
+    "Python For Data Science, Ai & Development": "certificates\\04 Python for Data Science, AI & Development.jpg",
+    "Python Project For Data Science": "certificates\\05 Python Project for Data Science.jpg",
 }
 
 
